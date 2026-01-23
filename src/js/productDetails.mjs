@@ -1,3 +1,6 @@
+// productDetails.mjs
+// Handles rendering individual product details
+
 import { getLocalStorage, setLocalStorage } from './utils.mjs';
 
 export default class ProductDetails {
@@ -8,44 +11,58 @@ export default class ProductDetails {
     this.dataSource = dataSource;
   }
 
+  // Initialize product details page
   async init() {
-    // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
+
+    // Fetch product details
     this.product = await this.dataSource.findProductById(this.productId);
-    // the product details are needed before rendering the HTML
+
+    // Render product details
     this.renderProductDetails();
-    // once the HTML is rendered, add a listener to the Add to Cart button
-    // Notice the .bind(this). This callback will not work if the bind(this) is missing. Review the readings from this week on "this" to understand why.
+
+    // Attach Add to Cart handler
     document
       .getElementById('addToCart')
       .addEventListener('click', this.addProductToCart.bind(this));
   }
 
+  // Add product to cart
   addProductToCart() {
+
+    // Retrieve cart
     const cartItems = getLocalStorage('so-cart') || [];
+
+    // Add product
     cartItems.push(this.product);
+
+    // Save updated cart
     setLocalStorage('so-cart', cartItems);
   }
 
+  // Render product details HTML
   renderProductDetails() {
-    document.querySelector('main').innerHTML += productDetailsTemplate(this.product);
+    document.querySelector('main').innerHTML +=
+      productDetailsTemplate(this.product);
   }
 }
 
-// ************* Alternative Display Product Details Method *******************
+// Template for product detail view
 function productDetailsTemplate(product) {
-   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
-     <h2 class="divider">${product.NameWithoutBrand}</h2>
-     <img
-       class="divider"
-       src="${product.Image}"
-       alt="${product.NameWithoutBrand}"
-     />
-     <p class="product-card__price">$${product.FinalPrice}</p>
-     <p class="product__color">${product.Colors[0].ColorName}</p>
-     <p class="product__description">
-     ${product.DescriptionHtmlSimple}
-     </p>
-     <div class="product-detail__add">
-       <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
-     </div></section>`;
+  return `
+    <section class="product-detail">
+      <h3>${product.Brand.Name}</h3>
+      <h2 class="divider">${product.NameWithoutBrand}</h2>
+      <img src="${product.Image}" alt="${product.NameWithoutBrand}" />
+      <p class="product-card__price">$${product.FinalPrice}</p>
+      <p class="product__color">${product.Colors[0].ColorName}</p>
+      <p class="product__description">
+        ${product.DescriptionHtmlSimple}
+      </p>
+      <div class="product-detail__add">
+        <button id="addToCart" data-id="${product.Id}">
+          Add to Cart
+        </button>
+      </div>
+    </section>
+  `;
 }
