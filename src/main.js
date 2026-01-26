@@ -1,19 +1,42 @@
-// main.js
+//import { loadHeaderFooter } from './utils.mjs';
+//
+//loadHeaderFooter();
+let product_categories = []
 
-// Import ProductData class (handles fetching JSON)
-import ProductData from '../src/js/productData.mjs';
+async function fetchProductCategory() {
+    const response = await fetch('./json/product-category.json');
+    const data = await response.json();
+    product_categories = data.product_category;
+    //console.log(product_categories);
+    displayProductCategories(product_categories);
+    
+}
+fetchProductCategory();
 
-// Import ProductList class (handles rendering products)
-import ProductList from '../src/js/productList.mjs';
+const productList = document.querySelector('.product-list');
 
-// Create data source using path to tents.json
-const dataSource = new ProductData('./json/tents.json');
+function displayProductCategories() {
+    product_categories.forEach((product) => {
+        let card = document.createElement('aside');
+        let productName = document.createElement('h2');
+        let productImage = document.createElement('img');
 
-// Select the UL element where products will be rendered
-const listElement = document.querySelector('.product-list');
+         // Set the content and attributes// Set the content and attributes
+        productName.textContent = product.name;
+        productImage.setAttribute('src', product.image);
+        productImage.setAttribute('alt', `Image of ${product.name}`);
+        productImage.setAttribute('loading', 'lazy');
+        productImage.setAttribute('width', '300');
+        productImage.setAttribute('height', '300');
 
-// Create ProductList instance
-const productList = new ProductList('tents', dataSource, listElement);
+        // Append elements to the card
+        card.appendChild(productImage);
+        card.appendChild(productName);
 
-// Fetch products and render them to the UI
-productList.init();
+        // Append the card to the container
+        productList.appendChild(card);
+       
+    });
+    
+}
+displayProductCategories(product_categories);
