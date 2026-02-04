@@ -1,0 +1,19 @@
+@media only screen and (min-width: 38rem) {
+    form {
+        display: grid;
+        grid-template-columns: auto;
+        column-gap: 20px;
+        width: 20rem;
+        margin-left: 0;
+    
+
+        aside {
+            margin-right: 0;
+
+
+           & fieldset {
+                margin: 10px;
+            }
+        }
+    }
+}

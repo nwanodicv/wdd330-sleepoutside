@@ -35,7 +35,28 @@ function displayProductCategories() {
 
         // Append the card to the container
         productList.appendChild(card);
-       
+
+        if(product.name === 'Tents') {
+            card.addEventListener('click', () => {
+                window.location.href = './product_listing/index.html';
+            })
+        }
+        if(product.name === 'Backpacks') {
+            card.addEventListener('click', () => {
+                window.location.href = './product_listin';
+            })
+        }
+        if(product.name === 'Sleeping bags') {
+            card.addEventListener('click', () => {
+                window.location.href = './product_listin';
+            })
+        }
+        if(product.name === 'Hammocks') {
+            card.addEventListener('click', () => {
+                window.location.href = './product_listin';
+            })
+        }
+
     });
     
 }

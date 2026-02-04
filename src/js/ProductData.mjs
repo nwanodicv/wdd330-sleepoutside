@@ -17,7 +17,7 @@ export default class ProductData {
     // Convert response to JavaScript object
     const data = await response.json();
 
-    // ✅ IMPORTANT:
+    //  IMPORTANT:
     // Our JSON is { "tents": [...] }
     // We must return the ARRAY inside it
     return data.tents;
