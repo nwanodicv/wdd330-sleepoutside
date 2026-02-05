@@ -1,4 +1,5 @@
 @media only screen and (min-width: 38rem) {
+    /** Form Section***/
     form {
         display: grid;
         grid-template-columns: auto;

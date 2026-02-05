@@ -15,7 +15,7 @@ export default class ProductList {
     // Fetch product data
     const products = await this.dataSource.getData();
 
-    // Render products to the UI
+    // Render products to the UI.
     this.renderList(products);
   }
 

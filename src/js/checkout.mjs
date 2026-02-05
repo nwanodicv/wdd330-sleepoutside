@@ -10,7 +10,7 @@ export function alertMessage(message, scroll = true) {
   const alert = document.createElement('div');
   // add a class to style the alert
   alert.classList.add('alert');
-  // set the contents. You should have a message and an X or something the user can click on to remove
+  // set the contents. You should have a message and an X or something the user can click on to remove.
   const msg = document.createElement('span');
   msg.classList.add('alert-message');
   msg.textContent = typeof message === 'string' ? message : JSON.stringify(message);

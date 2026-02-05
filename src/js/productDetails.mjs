@@ -1,5 +1,5 @@
 // productDetails.mjs
-// Handles rendering individual product details
+// Handles rendering individual product details.
 
 import { getLocalStorage, setLocalStorage } from './utils.mjs';
 

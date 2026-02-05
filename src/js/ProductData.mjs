@@ -1,7 +1,7 @@
 // productData.mjs
 export default class ProductData {
   constructor(dataSource) {
-    // Store path to JSON file
+    // Store path to JSON file.
     this.dataSource = dataSource;
   }
 

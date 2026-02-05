@@ -43,17 +43,17 @@ function displayProductCategories() {
         }
         if(product.name === 'Backpacks') {
             card.addEventListener('click', () => {
-                window.location.href = './product_listin';
+                window.location.href = './product_listing/backpackProducts.html';
             })
         }
         if(product.name === 'Sleeping bags') {
             card.addEventListener('click', () => {
-                window.location.href = './product_listin';
+                window.location.href = './product_listing/sleeping-bags.html';
             })
         }
         if(product.name === 'Hammocks') {
             card.addEventListener('click', () => {
-                window.location.href = './product_listin';
+                window.location.href = './product_listing/hammocks.html';
             })
         }
 

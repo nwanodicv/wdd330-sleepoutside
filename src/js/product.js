@@ -38,5 +38,5 @@ async function addToCartHandler(e) {
   addProductToCart(product);
 }
 
-// Attach event listener
+// Attach event listener. Assumes there's a button with id 'addToCart' and data-id attribute for product ID.
 document.getElementById('addToCart').addEventListener('click', addToCartHandler)

@@ -9,7 +9,7 @@ export async function convertToJson(res) {
   try {
     jsonResponse = await res.json();
   } catch (e) {
-    // response had no JSON body or was invalid JSON; keep jsonResponse null
+    // response had no JSON body or was invalid JSON; keep jsonResponse null.
   }
 
   if (res.ok) {

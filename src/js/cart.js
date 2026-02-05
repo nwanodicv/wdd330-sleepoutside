@@ -1,5 +1,5 @@
 // cart.js
-// Renders items stored in the shopping cart
+// Renders items stored in the shopping cart.
 
 import { getLocalStorage } from './utils.mjs';
 

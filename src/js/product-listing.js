@@ -10,7 +10,7 @@
 //const listing = new ProductList(category, dataSource, element);
 //
 //listing.init();
-
+//
 
 // main.js
 //import { loadHeaderFooter, getParam } from './utils.mjs';
