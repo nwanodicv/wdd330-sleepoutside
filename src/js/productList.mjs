@@ -21,7 +21,6 @@ export default class ProductList {
 
   // Render products as HTML
   renderList(products) {
-    console.log(products)
     // Convert product objects into HTML list items
     this.element.innerHTML = products
       .map(product => productCardTemplate(product))
