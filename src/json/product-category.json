@@ -1,0 +1,18 @@
+{"product_category": [
+    {
+        "name": "Tents",
+        "image": "./images/category-tents.svg"
+    },
+    {
+        "name": "Backpacks",
+        "image": "./images/category-backpacks.svg"
+    },
+    {
+        "name": "Sleeping bags",
+        "image": "./images/category-sleepingbags.svg"
+    },
+    {
+        "name": "Hammocks",
+        "image": "./images/category-hammocks.svg"
+    }
+]}

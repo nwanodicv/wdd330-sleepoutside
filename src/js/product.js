@@ -1,18 +1,42 @@
-import { setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+// product.js
+// Handles Add to Cart functionality
 
-const dataSource = new ProductData("tents");
+import { getLocalStorage, setLocalStorage } from './utils.mjs';
+import ProductData from './productData.mjs';
 
+// Create a ProductData instance pointing to the JSON file
+const dataSource = new ProductData('../json/tents.json');
+
+// Add a product to localStorage cart
 function addProductToCart(product) {
-  setLocalStorage("so-cart", product);
+
+  // Retrieve existing cart
+  let cart = getLocalStorage('so-cart');
+
+  // Ensure cart is an array
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
+
+  // Add product
+  cart.push(product);
+
+  // Save updated cart
+  setLocalStorage('so-cart', cart);
 }
-// add to cart button event handler
+
+// Handle Add to Cart button click
 async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
+
+  // Get product ID from button
+  const productId = e.target.dataset.id;
+
+  // Fetch full product object
+  const product = await dataSource.findProductById(productId);
+
+  // Save product to cart
   addProductToCart(product);
 }
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+// Attach event listener. Assumes there's a button with id 'addToCart' and data-id attribute for product ID.
+document.getElementById('addToCart').addEventListener('click', addToCartHandler)
